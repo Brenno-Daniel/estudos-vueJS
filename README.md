@@ -1,1 +1,2 @@
-# Repo de estudo sobre o VueJS do curso Web Moderno com JS
+# Repo de estudo sobre o VueJS 
+### Curso Web Moderno com JS
