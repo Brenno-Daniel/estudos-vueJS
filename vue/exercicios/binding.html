@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Binding</title>
+    <link rel="stylesheet" href="/css/estilo.css">
+    <script src="/js/vue.min.js"></script>
+</head>
+<body class="exercicio">
+
+    <div id="app">
+        <p>{{ link }}</p>
+        <p><a href="{{ link }}">Canal?</a></p>
+        <p><a v-bind:href="link" target="_blank" >Canal Cod3r</a></p>
+        <p><a :href="link" target="_blank">Canal cod3rcursos</a></p>
+        <p>
+            <!-- Diretiva v-model faz two-way databinding, atualização em duas vias -->
+            <input type="text" v-model="nome"><br>
+            <span>{{ nome }}</span>
+        </p>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                nome: "Brenno",
+                link: "https://youtube.com/cod3rcursos"
+            },
+            // com o watch recebemos um novo valor e conseguimos realizar qualquer tipo de manipulação
+            watch: {
+                nome(novoValor) {
+                    console.log(novoValor.toUpperCase());
+                }
+            }
+        })
+    </script>
+</body>
+</html>

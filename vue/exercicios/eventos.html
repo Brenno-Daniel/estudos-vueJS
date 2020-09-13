@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Eventos</title>
+    <link rel="stylesheet" href="/css/estilo.css">
+    <script src="/js/vue.min.js"></script>
+</head>
+<body class="exercicio">
+
+    <div id="app">
+        <p>{{ contador }}</p>
+        <p>
+            <!-- v-on = diretiva que tem por objetivo fazer o link, ou o binding
+            de um método ou função para ser chamado no momento que aconteceu o evento -->
+            <button v-on:click="add">+1</button>
+            <!-- @click é a forma abreviada do v-on -->
+            <button @click="contador -= 2">-2</button>
+        </p>
+        <p @mousemove="atualizarPosicao">Passe o mouse: <br>
+            Coordenadas: {{ x }} e {{ y }}
+            <!-- Adicionando modificador Stop -->
+            <span @mousemove.stop>Nessa área não monitora</span>
+            <p @mousemove="atualizarPosicao">Aqui monitora: {{ x }} e {{ y }}</p>
+            <!-- adicionando a função stopPropagation -->
+            <span @mousemove="stop">Aqui também não monitora</span>
+        </p>
+        <!-- modificador de evento de teclado -->
+        <input type="text" @keyup.enter="alerta"><br><br>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                x: 0,
+                y: 0,
+                contador: 0
+            },
+            methods: {
+                add() {
+                    this.contador ++
+                },
+                atualizarPosicao(event) {
+                    this.x = event.clientX
+                    this.y = event.clientY
+                    if(this.x == this.y) {
+                        alert(`BINGO: ${this.x} e ${this.y}`)
+                    }
+                },
+                stop(event) {
+                    event.stopPropagation()
+                },
+                alerta() {
+                    alert('Enter!')
+                }
+            }
+        })
+    </script>
+</body>
+</html>

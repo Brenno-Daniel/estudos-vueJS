@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Aplicando Estilo</title>
+    <link rel="stylesheet" href="/css/estilo.css">
+    <script src="/js/vue.min.js"></script>
+    <style>
+        .vermelho {
+            background-color: red;
+        }
+    </style>
+</head>
+<body class="exercicio">
+
+    <!-- a partir da diretiva v-on:click, estamos negando a condição anterior do elemento para aplicar a cor, ou seja, a cada clique altera de true para false, vice-versa.
+    E com a diretiva v-bind:class, estamos aplicando de forma condicional a classe CSS -->
+    <div id="app" @click="aplicarCor = !aplicarCor" :class="{vermelho: aplicarCor}" >
+        Teste
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                aplicarCor: false
+            }
+        })
+    </script>
+</body>
+</html>
