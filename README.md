@@ -12,7 +12,7 @@ npm i
 ```
 
 ## Execução dos Projetos
-O project possui 3 scripts prontos:
+O projeto possui 3 scripts prontos para execução:
 
 Exercicios: 
 ```
