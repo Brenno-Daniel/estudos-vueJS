@@ -18,7 +18,7 @@ Exercicios:
 ```
 npm run exercicios
 ```
-Neste script constam os execícios básicos sobre conceitos e utilização do VueJs.
+Neste script constam os execícios básicos sobre os principais conceitos e utilização do VueJs.
 
 QRCode: 
 ```
